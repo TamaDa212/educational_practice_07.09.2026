@@ -29,6 +29,15 @@ GROUP BY
 """
 
 
+def quantity_or_zero(value) -> int:
+    if value is None:
+        return 0
+    try:
+        return int(value)
+    except (TypeError, ValueError):
+        return 0
+
+
 def get_partner_sales_total(connection, partner_id):
     cursor = connection.cursor()
     cursor.execute(PARTNER_SALES_SQL, (partner_id,))
@@ -40,7 +49,7 @@ def get_partner_with_discount(connection, partner_id):
     row = get_partner_sales_total(connection, partner_id)
     if row is None:
         return None
-    total_quantity = int(row["total_quantity"])
+    total_quantity = quantity_or_zero(row["total_quantity"])
     discount_percent = calculate_partner_discount(total_quantity)
     partner_data = {
         "partner_id": row["partner_id"],
@@ -53,3 +62,15 @@ def get_partner_with_discount(connection, partner_id):
         "discount_percent": discount_percent,
     }
     return partner_data
+
+
+def list_partners_with_discount(connection):
+    cursor = connection.execute(
+        "SELECT partner_id FROM partners ORDER BY partner_id"
+    )
+    partners = []
+    for row in cursor.fetchall():
+        partner = get_partner_with_discount(connection, row["partner_id"])
+        if partner is not None:
+            partners.append(partner)
+    return partners

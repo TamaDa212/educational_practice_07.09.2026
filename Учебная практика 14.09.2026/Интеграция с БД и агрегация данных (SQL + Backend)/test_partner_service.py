@@ -1,5 +1,9 @@
 from db import get_connection, initialize_database
-from partner_service import get_partner_with_discount
+from partner_service import (
+    get_partner_with_discount,
+    list_partners_with_discount,
+    quantity_or_zero,
+)
 
 
 def setup_memory_db():
@@ -39,3 +43,16 @@ def test_unknown_partner_returns_none():
     partner = get_partner_with_discount(connection, 999)
     connection.close()
     assert partner is None
+
+
+def test_list_partners_with_discount():
+    connection = setup_memory_db()
+    partners = list_partners_with_discount(connection)
+    connection.close()
+    assert len(partners) == 5
+    by_id = {item["partner_id"]: item for item in partners}
+    assert by_id[4]["total_quantity"] == 0
+    assert by_id[4]["discount_percent"] == 0
+    assert by_id[5]["discount_percent"] == 5
+    assert quantity_or_zero(None) == 0
+    assert quantity_or_zero("bad") == 0
