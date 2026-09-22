@@ -1,0 +1,114 @@
+.trail {
+  margin: 0 24px 8px;
+  font-size: 13px;
+  color: #333333;
+}
+
+.btn {
+  display: inline-block;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  color: #111111;
+  background: #ffffff;
+  border: 1px solid #9a9a9a;
+  padding: 8px 16px;
+  text-decoration: none;
+}
+
+.btn:hover {
+  background: #f4f4f4;
+}
+
+.empty {
+  margin: 0;
+  font-size: 14px;
+  color: #333333;
+}
+
+.notice {
+  margin: 0 24px 8px;
+  font-size: 14px;
+}
+
+.partners {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.partners th,
+.partners td {
+  border-bottom: 1px solid #c8c8c8;
+  text-align: left;
+  padding: 8px 6px;
+}
+
+.partners th {
+  font-size: 13px;
+}
+
+.partner-row {
+  cursor: pointer;
+}
+
+.partner-row:hover {
+  background: #f4f4f4;
+}
+
+.partner-row.selected td {
+  outline: none;
+  font-weight: 700;
+}
+
+.partner-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 560px;
+}
+
+.partner-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 14px;
+  color: #111111;
+}
+
+.partner-form input,
+.partner-form select {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  color: #111111;
+  background: #ffffff;
+  border: 1px solid #9a9a9a;
+  padding: 8px 10px;
+}
+
+.partner-form input:focus,
+.partner-form select:focus {
+  outline: 2px solid #111111;
+  outline-offset: 1px;
+}
+
+.hint {
+  font-size: 12px;
+  color: #333333;
+}
+
+.field-error {
+  margin: 0;
+  font-size: 12px;
+  color: #111111;
+}
+
+.form-actions {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-top: 4px;
+}
+
+.partner-form .notice {
+  margin: 0 0 4px;
+}
