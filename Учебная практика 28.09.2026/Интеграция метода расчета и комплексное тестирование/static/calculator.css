@@ -1,0 +1,44 @@
+.order-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 420px;
+}
+
+.order-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 14px;
+}
+
+.order-form input {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  color: #111111;
+  background: #ffffff;
+  border: 1px solid #9a9a9a;
+  padding: 8px 10px;
+}
+
+.result {
+  margin: 16px 0 0;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.result.error {
+  font-weight: 400;
+  font-size: 14px;
+}
+
+.hints {
+  margin-top: 16px;
+  font-size: 13px;
+  color: #333333;
+}
+
+.hints ul {
+  margin: 4px 0 12px;
+  padding-left: 18px;
+}
